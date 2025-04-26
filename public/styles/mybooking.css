@@ -1,0 +1,68 @@
+
+/* * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+} */
+
+/* body {
+    background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
+    
+} */
+
+
+/* Booking Table Styling */
+.booking-table {
+    
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    margin-right: 20px;
+    font-size: 16px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.booking-table th,
+.booking-table td {
+    padding: 12px 15px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+.booking-table thead tr {
+    background-color: #4158D0;
+    color: #fff;
+}
+
+/* Button Styling */
+.cancel-btn {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9em;
+    /* transition: background-color 0.3s ease; */
+}
+
+.cancel-btn:hover {
+    background-color: #c0392b;
+}
+
+.cancel-btn:disabled {
+    background-color: grey;
+    cursor: not-allowed;
+}
+
+
+footer {
+    margin-top: 30px;
+    text-align: center;
+    color: #888;
+    font-size: 0.9em;
+}
+
+footer p {
+    margin: 10px 0;
+}

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Hotel Details</title>
+    <link rel="stylesheet" href="../styles/hotel-details.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body>
+    <header class="header">
+        <div class="navbar">
+            <a href="#" class="logo">Hotel Avenue</a>
+            <ul class="navbar-links">
+                <li><a href="dashboard.html">Home</a></li>
+                <li><a href="aboutus.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <section class="hero">
+        <!-- <div class="overlay"></div> -->
+        <img id="hero-image" class="hero-image" src="../Hotel-Bedroom/Image 1.jpg" alt="Hotel Image">
+        <div class="hero-text">
+            <h1 class="hotel-name">Iconic</h1>
+            <p class="hotel-address"></p>
+            <div class="rating-container">
+                <span class="material-icons">star</span>
+                <span class="hotel-rating">4.48</span>
+            </div>
+            <p class="hotel-price"> Price 1000 $</p>
+        </div>
+    </section>
+
+    <!-- images mores  -->
+    <!-- Horizontal Image Gallery Section -->
+    <section class="image-gallery">
+        <div class="gallery-thumbnails" >
+            <img src="../Hotel-Bedroom/Image 1(1).jpg" alt="Thumbnail 1"
+                onclick="swapHeroImage('Hotel Bedroom/Image 1(1).jpg')">
+            <img src="../Hotel-Bedroom/Image 1(2).jpg" alt="Thumbnail 2"
+                onclick="swapHeroImage('Hotel Bedroom/Image 1(2).jpg')">
+            <img src="../Hotel-Bedroom/Image 1(3).jpg" alt="Thumbnail 3"
+                onclick="swapHeroImage('Hotel Bedroom/Image 1(3).jpg')">
+            <img src="../Hotel-Bedroom/Image 1(4).jpg" alt="Thumbnail 4"
+                onclick="swapHeroImage('Hotel Bedroom/Image 1(4).jpg')">
+        </div>
+    </section>
+    <!-- images mores  -->
+    <!-- Horizontal Image Gallery Section  ends -->
+
+    <main class="content-container">
+        <section class="hotel-overview">
+            <h2>Hotel Overview</h2>
+            <p class="hotel-description">Welcome to Iconic, where modern luxury meets
+                timeless elegance. Nestled in the heart of [City], our hotel offers an
+                unforgettable experience characterized by sophisticated design and
+                unparalleled service. Each room is thoughtfully appointed with high-end
+                amenities, blending contemporary style with comfort to create a sanctuary
+                for relaxation.</p>
+        </section>
+
+        <section class="hotel-amenities">
+            <h2>Amenities</h2>
+            <div class="amenities-list">
+                <div class="amenity-card">
+                    <span class="material-icons">pool</span>
+                    <p>Swimming Pool</p>
+                </div>
+                <div class="amenity-card">
+                    <span class="material-icons">spa</span>
+                    <p>Spa & Wellness</p>
+                </div>
+                <div class="amenity-card">
+                    <span class="material-icons">restaurant</span>
+                    <p>Restaurant</p>
+                </div>
+                <div class="amenity-card">
+                    <span class="material-icons">wifi</span>
+                    <p>Free Wi-Fi</p>
+                </div>
+                <!-- Add more amenities as needed -->
+            </div>
+        </section>
+
+        <section class="hotel-details">
+            <h2>More Details</h2>
+            <p class="hotel-details-text"> <br>Accommodations:</br>
+                Elegantly designed rooms and suites blend modern style with classic
+                comfort, featuring plush bedding, custom furnishings, and advanced
+                technology for a relaxing stay.
+                <br> Dining: </br>
+                Experience innovative cuisine at Iconic, offering a fusion
+                of local and international flavors, or enjoy casual bites and beverages
+                at our café and 24-hour room service.
+                <br> Events and Meetings: </br>
+                Versatile event spaces with comprehensive planning services cater to
+                business meetings and social events, ensuring a flawless and memorable
+                experience.
+                <br> Location: </br>
+                Ideally situated in [City], Iconic Hotel provides easy access to key
+                attractions, shopping, and entertainment, making it perfect for exploring
+                the vibrant local scene.
+                <br> Service: </br>
+                Our dedicated staff delivers exceptional service with a focus on
+                personalized care, ensuring every aspect of your stay is tailored to your
+                needs.
+            </p>
+        </section>
+    </main>
+   <br> <br> <br>
+    <div class="action-bar">
+        <a href="booknow.html" class="book-now-button">Book Now</a>
+    </div>
+    
+
+    <script src="../scripts/hotel-details.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0" />
+		<title>Hotel Details with Booking Sidebar</title>
+		<link
+			rel="stylesheet"
+			href="../styles/booknow.css" />
+		<link
+			href="https://fonts.googleapis.com/icon?family=Material+Icons"
+			rel="stylesheet" />
+	</head>
+
+	<body>
+		<!-- Navbar -->
+		<header class="header">
+			<div class="navbar">
+				<a
+					href="../index.html"
+					class="logo"
+					>Hotel Avenue</a
+				>
+				<ul class="navbar-links">
+					<li><a href="../index.html">Home</a></li>
+					<li><a href="aboutus.html">About</a></li>
+					<li><a href="contact.html">Contact</a></li>
+					<li><a href="viewhotels.html">View Hotels</a></li>
+				</ul>
+			</div>
+		</header>
+
+		<!-- Main content and Side -->
+		<div class="main-container">
+			<aside class="side">
+				<h2>Book Your Stay</h2>
+				<form>
+					<div class="form-group">
+						<label for="name">Full Name:</label>
+						<input
+							type="text"
+							id="name"
+							name="name"
+							required />
+					</div>
+
+					<div class="form-group">
+						<label for="email">Email Address:</label>
+						<input
+							type="email"
+							id="email"
+							name="email"
+							required />
+					</div>
+
+					<div class="form-group">
+						<label for="phone">Phone Number:</label>
+						<input
+							type="tel"
+							id="phone"
+							name="phone"
+							required />
+					</div>
+
+					<div class="form-group">
+						<label for="checkin">Check-In Date:</label>
+						<input
+							type="date"
+							id="checkin"
+							name="checkin"
+							required />
+					</div>
+
+					<div class="form-group">
+						<label for="checkout">Check-Out Date:</label>
+						<input
+							type="date"
+							id="checkout"
+							name="checkout"
+							required />
+					</div>
+
+					<div class="form-group">
+						<label for="roomtype">Room Type:</label>
+						<select
+							id="roomtype"
+							name="roomtype">
+							<option value="single">Single Room</option>
+							<option value="double">Double Room</option>
+							<option value="suite">Suite</option>
+						</select>
+					</div>
+
+					<div class="form-group">
+						<label for="guests">Number of Guests:</label>
+						<input
+							type="number"
+							id="guests"
+							name="guests"
+							required />
+					</div>
+
+					<input
+						type="submit"
+						class="book-now-button"
+						>Book Now</input
+					>
+				</form>
+			</aside>
+		</div>
+
+		<footer>
+			<p>&copy; 2024 Hotel Avenue. All rights reserved.</p>
+		</footer>
+	</body>
+	<script type="module">
+		const form = document.querySelector('form');
+
+		form.addEventListener('submit', (event) => {
+			event.preventDefault(); // Prevent the default form submission
+
+			// Form validation
+			const name = document.getElementById('name').value.trim();
+			const email = document.getElementById('email').value.trim();
+			const phone = document.getElementById('phone').value.trim();
+			const checkin = document.getElementById('checkin').value;
+			const checkout = document.getElementById('checkout').value;
+			const roomtype = document.getElementById('roomtype').value;
+			const guests = document.getElementById('guests').value;
+
+			if (!name || !email || !phone || !checkin || !checkout || !roomtype || !guests) {
+				alert('Please fill out all fields.');
+				return;
+			}
+
+			// Validate email format
+			const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+			if (!emailRegex.test(email)) {
+				alert('Please enter a valid email address.');
+				return;
+			}
+
+			// Validate phone number format (basic example)
+			const phoneRegex = /^[0-9]{10}$/;
+			if (!phoneRegex.test(phone)) {
+				alert('Please enter a valid 10-digit phone number.');
+				return;
+			}
+
+			// Validate check-in and check-out dates
+			if (new Date(checkin) >= new Date(checkout)) {
+				alert('Check-out date must be after the check-in date.');
+				return;
+			}
+
+			// Validate number of guests
+			if (guests <= 0) {
+				alert('Number of guests must be at least 1.');
+				return;
+			}
+
+			// If validation passes, proceed with form submission
+			const formData = new FormData(form);
+			const urlEncoded = new URLSearchParams(formData).toString();
+			console.log(urlEncoded); // For debugging
+			const url = '/api/bookings'; // Replace with your API endpoint
+			const options = {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/x-www-form-urlencoded',
+				},
+				body: urlEncoded,
+			};
+
+			fetch(url, options)
+				.then((response) => {
+					if (!response.ok) {
+						throw new Error('Network response was not ok');
+					}
+					return response.json();
+				})
+				.then((data) => {
+					console.log('Booking successful:', data);
+					alert('Booking successful!');
+				})
+				.catch((error) => {
+					console.error(
+						'There was a problem with the fetch operation:',
+						error,
+					);
+					alert('Booking failed. Please try again.');
+				});
+		});
+	</script>
+</html>

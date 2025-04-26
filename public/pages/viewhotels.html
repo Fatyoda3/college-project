@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0" />
+		<title>Hotels</title>
+		<link
+			rel="stylesheet"
+			href="../styles/viewhotels.css" />
+		<link
+			rel="stylesheet"
+			href="../styles/main.css" />
+
+		<link
+			href="https://fonts.googleapis.com/icon?family=Material+Icons"
+			rel="stylesheet" />
+	</head>
+
+	<body>
+		<div class="navbar">
+			<ul class="navbar-links">
+				<li><a href="../index.html">Home</a></li>
+				<li><a href="aboutus.html">About</a></li>
+				<li><a href="contact.html">Contact</a></li>
+			</ul>
+		</div>
+		<button
+			class="sidebar-toggle"
+			onclick="toggleSidebar()">
+			<span class="material-icons">menu</span>
+		</button>
+
+		<div
+			class="sidebar"
+			id="sidebar">
+			<ul class="sidebar-links">
+				<li><a href="../index.html">Dashboard</a></li>
+
+				<li><a href="viewhotels.html">View hotels</a></li>
+				<li><a href="mybooking.html">My Bookings</a></li>
+			</ul>
+		</div>
+		<div
+			class="content"
+			id="content"></div>
+
+		<script src="../scripts/viewHotels.js"></script>
+		<script src="../scripts/dashboard.js"></script>
+	</body>
+</html>

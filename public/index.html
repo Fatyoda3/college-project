@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Avenue</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="navbar">
+        <ul class="navbar-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="pages/aboutus.html">About</a></li>
+            <li><a href="pages/contact.html">Contact</a></li>
+        </ul>
+    </div>
+    <button class="sidebar-toggle" onclick="toggleSidebar()">
+        <span class="material-icons">menu</span>
+    </button>
+
+    <div class="sidebar" id="sidebar">
+        <ul class="sidebar-links">
+           
+        </ul>
+    </div>
+
+    
+    <div class="slider">
+    
+        <div class="list">
+            <div class="item active slide-1">
+                <img src="bg-img/Image 1.jpg" alt="Hotel Image 1">
+                <div class="content">
+                    <h2>Elysian Dreams</h2>
+                    <p>
+                        Immerse yourself in a world of unparalleled luxury and tranquility
+                        at Elysian Dreams Hotel. Experience a mythical retreat where
+                        every moment is crafted to perfection, offering an escape into
+                        sublime comfort and elegance.
+                    </p>
+                    <button><a href="pages/viewhotels.html">View More</button></a>
+                </div>
+            </div>
+            <div class="item slide-2">
+                <img src="bg-img/Image 2.jpg" alt="Hotel Image 2">
+                <div class="content">
+                    <h2>Mirage Haven</h2>
+                    <p>
+                        A place of ephemeral elegance and serenity, where every moment
+                        feels like a dream, offering an unparalleled escape into a world
+                        of tranquil luxury.
+                    </p>
+                    <button><a href="pages/viewhotels.html">View More</button></a>
+                </div>
+            </div>
+            <div class="item slide-3">
+                <img src="bg-img/Image 3.jpg" alt="Hotel Image 3">
+                <div class="content">
+                    <h2>Enchanted Oasis</h2>
+                    <p>
+                        A mythical retreat nestled in a realm of endless luxury, where
+                        every experience is a carefully crafted illusion of opulent
+                        tranquility.
+                    </p>
+                    <button><a href="pages/viewhotels.html">View More</button></a>
+                </div>
+            </div>
+            <div class="item slide-4">
+                <img src="bg-img/Image 4.jpg" alt="Hotel Image 4">
+                <div class="content">
+                    <h2>Celestial Retreat</h2>
+                    <p>
+                        A mythical haven nestled among the stars,
+                        offering unparalleled serenity and opulence.
+                        Escape to a realm where luxury and imagination intertwine
+                        in perfect harmony.
+                    </p>
+                    <button><a href="pages/viewhotels.html">View More</button></a>
+                </div>
+            </div>
+            <div class="item slide-5">
+                <img src="bg-img/Image 5.jpg" alt="Hotel Image 5">
+                <div class="content">
+                    <h2>Eternal Haven</h2>
+                    <p>
+                        A luxurious sanctuary beyond time, promising endless comfort and an
+                        escape from reality. Experience unrivaled tranquility in a place
+                        where every moment is perpetually perfect.
+                    </p>
+                    <button><a href="pages/viewhotels.html">View More</button></a>
+                </div>
+            </div>
+        </div>
+     
+        <div class="arrows">
+            <button id="prev"><</button>
+                    <button id="next">></button>
+        </div>
+
+                                                                     
+        <div class="thumbnail">
+            <div class="item active">
+                <img src="bg-img/Image 1.jpg">
+                <div class="content">
+                    Name Slider
+                </div>
+            </div>
+            <div class="item">
+                <img src="bg-img/Image 2.jpg">
+                <div class="content">
+                    Name Slider
+                </div>
+            </div>
+            <div class="item">
+                <img src="bg-img/Image 3.jpg">
+                <div class="content">
+                    Name Slider
+                </div>
+            </div>
+            <div class="item">
+                <img src="bg-img/Image 4.jpg">
+                <div class="content">
+                    Name Slider
+                </div>
+            </div>
+            <div class="item">
+                <img src="bg-img/Image 5.jpg">
+                <div class="content">
+                    Name Slider
+                </div>
+            </div>
+        </div>
+
+        <section class="restaurants-section">
+            <h2 class="section-title">Events</h2>
+
+            <div class="restaurant-container">
+                <div class="restaurant-card">
+                    <img src="Events/Dinner.jpg" alt="The Spice Route" class="restaurant-img">
+                    <div class="card-content">
+                        <h3 class="restaurant-name">Restaurant</h3>
+                        <p>Since its debut, the country’s most iconic restaurant has been
+                            fascinating diners from the world over with its mural art,
+                            ancient temple pillars and awe-inspiring philosophy, visible
+                            across nine intriguing storied sections to the open courtyard.
+                            The journey of Asian cuisine at The Spice Route begins from
+                            the corners of East Asia through Java to India, presenting a
+                            modern yet epicurean Asian plate dining experience for
+                            business luncheons and fun evenings with colleagues and
+                            friends at the very heart of the city.</p>
+
+                    </div>
+                </div>
+
+              
+                <div class="restaurant-card">
+                    <img src="Events/Bars.jpg" alt="Patiala Peg" class="restaurant-img">
+                    <div class="card-content">
+                        <h3 class="restaurant-name">Bars</h3>
+                        <p>The Avenue New Delhi's Patiala Peg bar celebrates the
+                            opulence of Patiala's royal courts, serving the exclusive
+                            120ml giant peg. This unique bar, honoring the Maharaja of
+                            Patiala's extravagant taste, offers a glimpse into the origin
+                            of the iconic peg, born from a polo match in the early 1900s.
+                            A favorite among elites, it embodies Patialan hospitality and
+                            the legacy of 'Pegs and Pleasures.'</p>
+                    </div>
+                </div>
+                <div class="restaurant-card">
+                    <img src="Events/Meetings.jpg" alt="For Meetings" class="restaurant-img">
+                    <div class="card-content">
+                        <h3 class="restaurant-name"> Events & CONFERENCES </h3>
+                        <p>The Avenue is one of the city’s best locations to host
+                            bespoke meetings and events. Combining stunning architecture
+                            and dedicated service with a menu to match, it is an exclusive
+                            space where the main actors of the Independence movement met
+                            to make epic decisions, still relevant to the current times.
+                        </p>
+                    </div>
+                </div>
+                <div class="restaurant-card">
+                    <img src="Events/Weeding.jpg" alt="Weddings" class="restaurant-img">
+                    <div class="card-content">
+                        <h3 class="restaurant-name">Weddings</h3>
+                        <p>The Avenue, with its Victorian charm, offers a stunning
+                            4386 sq ft. space for up to 500 guests. Its 21-foot ceiling,
+                            opulent chandeliers, and elegant pre-function areas create
+                            a luxurious atmosphere. The ballroom features a magnificent
+                            oil painting of the "Darbar of Malerkotla" and includes
+                            shiny marble staircases and a stylish balcony overlooking
+                            The Imperial Lawn, perfect for a grand wedding.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section class="core-features">
+            <h1 class="core-features-title">Core Features</h1>
+
+            <div class="features-container">
+                <div class="feature-item">
+                    <span class="material-icons">thumb_up</span>
+                    <h3>Have High Rating</h3>
+                    <p>We take pride in curating a selection of hotels that consistently receive high ratings and
+                        positive reviews.</p>
+                </div>
+
+                <div class="feature-item">
+                    <span class="material-icons">schedule</span>
+                    <h3>Quiet Hours</h3>
+                    <p>We understand that peace and uninterrupted rest are essential for a rejuvenating experience.</p>
+                </div>
+
+                <div class="feature-item">
+                    <span class="material-icons">place</span>
+                    <h3>Best Location</h3>
+                    <p>At our hotel booking website, we take pride in offering accommodations in the most prime and
+                        sought-after locations.</p>
+                </div>
+
+                <div class="feature-item">
+                    <span class="material-icons">cancel</span>
+                    <h3>Free Cancellation</h3>
+                    <p>We understand that travel plans can change unexpectedly, which is why we offer the flexibility of
+                        free cancellation.</p>
+                </div>
+
+                <div class="feature-item">
+                    <span class="material-icons">payment</span>
+                    <h3>Payment Options</h3>
+                    <p>Our hotel booking website offers a range of convenient payment options to suit your preferences.
+                    </p>
+                </div>
+
+                <div class="feature-item">
+                    <span class="material-icons">local_offer</span>
+                    <h3>Special Offers</h3>
+                    <p>Whether you're planning a romantic getaway, or a business trip, our carefully curated special
+                        offers cater to all your needs.</p>
+                </div>
+            </div>
+        </section>
+
+   
+
+
+    </div>
+
+    <script src="scripts/dashboard.js"></script>
+  
+
+</body>
+
+</html>

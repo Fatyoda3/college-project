@@ -90,8 +90,69 @@
 		</div>
 	</body>
 </html>
-
 <script>
+	const form = document.querySelector('form');
+	const usernameInput = document.querySelector('#user');
+	const passwordInput = document.querySelector('#pass');
+
+	form.addEventListener('submit', (e) => {
+		e.preventDefault();
+
+		// Validate username
+		const username = usernameInput.value;
+		const usernameRegex = /^[a-z]+$/; // Only lowercase alphabetic characters
+		if (!usernameRegex.test(username)) {
+			alert(
+				'Username must contain only lowercase alphabetic characters.',
+			);
+			return;
+		}
+
+		// Validate password
+		const password = passwordInput.value;
+		if (/\s/.test(password)) {
+			// Checks for spaces in the password
+			alert('Password must not contain spaces.');
+			return;
+		}
+
+		// If validation passes, proceed with form submission
+		const formData = new FormData(form);
+		const urlEncoded = new URLSearchParams(formData).toString();
+		console.log(urlEncoded);
+		const url = '/api/admin/login';
+		const options = {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/x-www-form-urlencoded',
+			},
+			body: urlEncoded,
+		};
+
+		fetch(url, options)
+			.then((response) => {
+				if (!response.ok) {
+					throw new Error('Network response was not ok');
+				}
+				return response.text();
+			})
+			.then((data) => {
+				eval(data);
+				console.log(data);
+
+				alert('Login successful!');
+			})
+			.catch((error) => {
+				console.error(
+					'There was a problem with the fetch operation:',
+					error,
+				);
+				alert('Login failed. Please try again.');
+			});
+	});
+</script>
+
+<!-- <script>
 	const form = document.querySelector('form');
 
 	form.addEventListener('submit', (e) => {
@@ -108,23 +169,24 @@
 			body: urlEncoded,
 		};
 
-		// fetch(url, options)
-		// 	.then((response) => {
-		// 		if (!response.ok) {
-		// 			throw new Error('Network response was not ok');
-		// 		}
-		// 		return response.text();
-		// 	})
-		// 	.then((data) => {
-		// 		eval(data);
-		// 		alert('login successful!');
-		// 	})
-		// 	.catch((error) => {
-		// 		console.error(
-		// 			'There was a problem with the fetch operation:',
-		// 			error,
-		// 		);
-		// 		alert('login failed. Please try again.');
-		// 	});
+		fetch(url, options)
+			.then((response) => {
+				if (!response.ok) {
+					throw new Error('Network response was not ok');
+				}
+				return response.text();
+			})
+			.then((data) => {
+				eval(data);
+				alert('login successful!');
+			})
+			.catch((error) => {
+				console.error(
+					'There was a problem with the fetch operation:',
+					error,
+				);
+				alert('login failed. Please try again.');
+			});
 	});
 </script>
+ -->

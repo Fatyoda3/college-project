@@ -179,10 +179,10 @@
 					if (!response.ok) {
 						throw new Error('Network response was not ok');
 					}
-					return response.json();
+					return response.text()
 				})
 				.then((data) => {
-					console.log('Booking successful:', data);
+					eval(data)
 					alert('Booking successful!');
 				})
 				.catch((error) => {

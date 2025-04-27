@@ -15,7 +15,6 @@
 	</head>
 
 	<body>
-		<!-- Navbar -->
 		<header class="header">
 			<div class="navbar">
 				<a
@@ -26,13 +25,12 @@
 				<ul class="navbar-links">
 					<li><a href="../index.html">Home</a></li>
 					<li><a href="aboutus.html">About</a></li>
-					<li><a href="contact.html">Contact</a></li>
+					<!-- <li><a href="contact.html">Contact</a></li> -->
 					<li><a href="viewhotels.html">View Hotels</a></li>
 				</ul>
 			</div>
 		</header>
 
-		<!-- Main content and Side -->
 		<div class="main-container">
 			<aside class="side">
 				<h2>Book Your Stay</h2>
@@ -119,9 +117,8 @@
 		const form = document.querySelector('form');
 
 		form.addEventListener('submit', (event) => {
-			event.preventDefault(); // Prevent the default form submission
+			event.preventDefault();
 
-			// Form validation
 			const name = document.getElementById('name').value.trim();
 			const email = document.getElementById('email').value.trim();
 			const phone = document.getElementById('phone').value.trim();
@@ -135,14 +132,14 @@
 				return;
 			}
 
-			// Validate email format
+			
 			const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 			if (!emailRegex.test(email)) {
 				alert('Please enter a valid email address.');
 				return;
 			}
 
-			// Validate phone number format (basic example)
+			
 			const phoneRegex = /^[0-9]{10}$/;
 			if (!phoneRegex.test(phone)) {
 				alert('Please enter a valid 10-digit phone number.');

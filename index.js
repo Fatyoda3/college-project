@@ -17,7 +17,6 @@ server.use(cors());
 server.use(express.json());
 server.use(express.urlencoded({ extended: true }));
 server.use(express.static(path.join(__dirname, 'public'))); // literally just a folder with static files
-
 server.post('/api/bookings', async (req, res) => {
 	/* const { name, email, phone, checkin, checkout, roomtype, guests } =
 		req.body; */

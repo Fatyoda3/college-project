@@ -35,13 +35,12 @@ server.post('/api/bookings', async (req, res) => {
 
 	fs.writeFile(CurrBooking, JSON.stringify(req.body));
 
+	res.send(`console.log("booked") ; localStorage.setItem("id","${count}");`);
 	fs.writeFile(countPath, String((count += 1)));
-
-	res.send('console.log("booked")');
 });
-// server.get('/admin' , async(req , res)=>{
-// console.log(req);
-// })
+
+//handle deletion of bookings 
+server.delete('/bookings/delete', (req, res) => {});
 server.post('/admin', async (req, res) => {
 	console.log(req.body.secret, sessionSecret);
 
@@ -110,7 +109,7 @@ server.listen(PORT, () => {
 	console.log('Server is running on ' + PORT);
 });
 
-let sendBookings = async () => {
+/* let sendBookings = async () => {
 	const bookings = path.join(__dirname, 'bookings');
 
 	let paths = await fs.readdir(bookings);
@@ -127,3 +126,6 @@ let sendBookings = async () => {
 	}
 	console.log(dataArr);
 };
+ */
+
+

@@ -1,17 +1,4 @@
 
-/* * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-} */
-
-/* body {
-    background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
-    
-} */
-
-
-/* Booking Table Styling */
 .booking-table {
     
     width: 100%;
@@ -20,6 +7,7 @@
     margin-right: 20px;
     font-size: 16px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
 }
 
 .booking-table th,
@@ -66,3 +54,4 @@ footer {
 footer p {
     margin: 10px 0;
 }
+

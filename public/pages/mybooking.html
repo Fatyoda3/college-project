@@ -40,39 +40,57 @@
 		<div
 			class="content"
 			id="content">
+			<button id="del">click to delete booking</button>
 			<section class="main-content">
 				<h2>Your Bookings</h2>
-				<table class="booking-table"></table>
+				<div class="booking-table"></div>
 			</section>
 		</div>
 
 		<script src="../scripts/dashboard.js"></script>
 		<script>
-			const table = document.querySelector('.booking-table');
-			!table.hasChildNodes()
-				? (table.innerHTML = '<h3>no bookings found</h1>')
-				: null;
+			const cancel = document.querySelector('#del');
+			const detailsPane = document.querySelector('.booking-table');
+			const ref = document.createElement('div');
 
-			function cancelBooking(bookingId) {
-				// Confirm cancellation
-				if (
-					confirm(
-						'Are you sure you want to cancel booking ' +
-							bookingId +
-							'?',
-					)
-				) {
-					// Simulate updating booking status to 'Canceled' and disabling the button
-					let bookingRows = document.querySelectorAll('tbody tr');
+			const booking =
+				JSON.parse(localStorage.getItem('bookingData')) || {};
 
-					bookingRows.forEach((row) => {
-						if (row.cells[0].textContent === bookingId) {
-							row.cells[6].textContent = 'Canceled'; // Update status to 'Canceled'
-							row.querySelector('button').disabled = true; // Disable the cancel button
-						}
-					});
+			if (!booking) table.innerHTML = '<h3>no bookings found</h1>';
+			else {
+				ref.innerHTML = `
+							<ul>
+								<li>Guest Name</li>
+								<li>Contact</li>
+								<li>Email</li>
+								<li>Check-in Date</li>
+								<li>Check-out Date</li>
+								<li>Room type</li>
+								<li>Number of Guests</li>
+							</ul>`;
+
+				const list = document.createElement('ul');
+
+				for (const detail in booking) {
+					const row = document.createElement('li');
+					row.innerText = `${booking[detail]}`;
+					list.append(row);
 				}
+				ref.appendChild(list);
 			}
+			detailsPane.appendChild(ref);
+			/* const del = () => {}; */
+			cancel.addEventListener('click', (e) => {
+			
+				const options = {
+					method: 'DELETE',
+					/* headers: {
+						'Content-Type': 'application/x-www-form-urlencoded',
+					}, */
+					// body: /* , */
+				};
+				// fetch('/bookings/delete');
+			});
 		</script>
 	</body>
 </html>

@@ -59,3 +59,16 @@ footer p {
 	padding: 5px;
 }
 
+.marked-del {
+	background: rgb(233, 114, 114);
+	color: #ddd;
+	cursor: pointer;
+	border: 10px solid red;
+}
+
+.marked-del:hover {
+	background: rgb(233, 114, 114);
+	color: #ddd;
+	cursor: pointer;
+	border: 10px solid purple;
+}

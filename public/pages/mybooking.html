@@ -86,27 +86,41 @@
 			}
 
 			cancel.addEventListener('click', (e) => {
-				console.log('object');
+				if(!detailsPane.hasChildNodes()) alert('no bookings to cancel')
 				let markThem = detailsPane.childNodes;
 
 				markThem.forEach((el) => {
 					console.log('marked');
+					el.classList.add('marked-del')
 					el.addEventListener('click', (e) => {
+						let id = el.uniqueID;
+
 						let a;
-						while (
-							!a ||
-							!a /* .toLowerCase() */ == 'y' ||
-							!a /* .toLocaleLowerCase() */ == 'n'
-						)
+						while (!a || (a !== 'y' && a !== 'n')) {
 							a = prompt(
-								'want to cancel this booking : (Y/N)',
+								'Want to cancel this booking? (Y/N)',
 							).toLocaleLowerCase();
+						}
 						if (a === 'y') {
-							localStorage.removeItem(el.uniqueID);
+							localStorage.removeItem(el.uniqueID); // uncomment ################
+							
 							el.remove();
 						} else {
-							alert('no bookings were cancelled ');
+							alert('No bookings were cancelled.');
 						}
+
+						id = JSON.stringify({ id: id[id.length - 1] });
+						console.log(id);
+						fetch('/bookings/delete', {
+							method: 'POST',
+							body: id,
+
+							headers: {
+								'Content-Type': 'application/json',
+							},
+						})
+							.then((e) => e.text())
+							.then((e) => alert(e));
 					});
 				});
 			});

@@ -43,7 +43,21 @@ server.post('/api/bookings', async (req, res) => {
 });
 
 //handle deletion of bookings
-server.delete('/bookings/delete', (req, res) => {});
+server.post('/bookings/delete', (req, res) => {
+	let id = req.body?.id;
+	console.log(req.body);
+	console.log(id);
+
+
+	try {
+		fs.unlink(path.join(__dirname, 'bookings', `${id}.json`));
+
+		res.end('booking cancelled');
+	} catch(err) {
+		console.log(err);
+		res.end('something went wrong on server ');
+	}
+});
 server.post('/admin', async (req, res) => {
 	console.log(req.body.secret, sessionSecret);
 

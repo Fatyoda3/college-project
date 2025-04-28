@@ -51,14 +51,18 @@
 		<script>
 			const cancel = document.querySelector('#del');
 			const detailsPane = document.querySelector('.booking-table');
-			const ref = document.createElement('div');
+			let c = 0;
+			for (const str in localStorage) {
+				if (c++ > localStorage.length - 1) break;
+				const booking = JSON.parse(localStorage.getItem(str)) || {};
 
-			const booking =
-				JSON.parse(localStorage.getItem('bookingData')) || {};
+				const ref = document.createElement('div');
+				ref.className = 'iB';
+				ref.uniqueID = str; /* localStorage.getItem(str) */
 
-			if (!booking) table.innerHTML = '<h3>no bookings found</h1>';
-			else {
-				ref.innerHTML = `
+				if (!booking) table.innerHTML = '<h3>no bookings found</h1>';
+				else {
+					ref.innerHTML = `
 							<ul>
 								<li>Guest Name</li>
 								<li>Contact</li>
@@ -69,17 +73,43 @@
 								<li>Number of Guests</li>
 							</ul>`;
 
-				const list = document.createElement('ul');
+					const list = document.createElement('ul');
 
-				for (const detail in booking) {
-					const row = document.createElement('li');
-					row.innerText = `${booking[detail]}`;
-					list.append(row);
+					for (const detail in booking) {
+						const row = document.createElement('li');
+						row.innerText = `${booking[detail]}`;
+						list.append(row);
+					}
+					ref.appendChild(list);
 				}
-				ref.appendChild(list);
+				detailsPane.appendChild(ref);
 			}
-			detailsPane.appendChild(ref);
-		
+
+			cancel.addEventListener('click', (e) => {
+				console.log('object');
+				let markThem = detailsPane.childNodes;
+
+				markThem.forEach((el) => {
+					console.log('marked');
+					el.addEventListener('click', (e) => {
+						let a;
+						while (
+							!a ||
+							!a /* .toLowerCase() */ == 'y' ||
+							!a /* .toLocaleLowerCase() */ == 'n'
+						)
+							a = prompt(
+								'want to cancel this booking : (Y/N)',
+							).toLocaleLowerCase();
+						if (a === 'y') {
+							localStorage.removeItem(el.uniqueID);
+							el.remove();
+						} else {
+							alert('no bookings were cancelled ');
+						}
+					});
+				});
+			});
 		</script>
 	</body>
 </html>

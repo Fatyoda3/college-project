@@ -4,7 +4,11 @@ import { configDotenv } from 'dotenv';
 import path from 'path';
 import fs from 'fs/promises';
 import url from 'url';
-const sessionSecret = Math.floor(Math.random() * 1024);
+let sessionSecret = Math.floor(Math.random() * 1024 * 1024 * 1024);
+setInterval(() => {
+	sessionSecret = Math.floor(Math.random() * 1024 * 1024 * 1024);
+	console.log(sessionSecret, 'changed');
+}, 60 * 30 * 1000 /* will update the token within 30 minutes  so brute forcing the token is hard */);
 
 configDotenv();
 const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
@@ -33,12 +37,12 @@ server.post('/api/bookings', async (req, res) => {
 	const CurrBooking = path.join(bookingPath, `${count + '.json'}`);
 
 	fs.writeFile(CurrBooking, JSON.stringify(req.body));
-
-	res.send(`console.log("booked") ; localStorage.setItem("id","${count}");`);
+	res.send(count);
+	// res.send(`console.log("booked") ;/*  localStorage.setItem("id","${count}"); */`);
 	fs.writeFile(countPath, String((count += 1)));
 });
 
-//handle deletion of bookings 
+//handle deletion of bookings
 server.delete('/bookings/delete', (req, res) => {});
 server.post('/admin', async (req, res) => {
 	console.log(req.body.secret, sessionSecret);
@@ -126,5 +130,3 @@ server.listen(PORT, () => {
 	console.log(dataArr);
 };
  */
-
-

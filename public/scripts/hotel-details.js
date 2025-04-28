@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function () {
 	// console.log(t);
 	/* let  */ id = Number(t.get('id')) - 1;
 	let currHotel = hotels[id];
-	console.table(currHotel, hotels, t, id);
+	// console.table(currHotel, hotels, t, id);
 	//documenting so sometimes we forget indexes start from 0 so be careful folks
 	document.querySelector('.hero-image').src = currHotel.image;
 	document.querySelector('.hotel-name').textContent = currHotel.name;
@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', function () {
 		});
 
 	const images = document.querySelectorAll('.a1');
-	console.log(images);
+	// console.log(images);
 
 	images.forEach((el) => {
 		let path = '../Hotel-Bedroom/';
